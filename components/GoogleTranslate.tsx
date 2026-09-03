@@ -1,4 +1,5 @@
-use client";
+"use client";
+
 import { useEffect } from "react";
 
 declare global {
@@ -22,16 +23,20 @@ export default function GoogleTranslate() {
         );
       }
     };
+
     const existing = document.getElementById("google-translate-script");
+
     if (!existing) {
       const script = document.createElement("script");
       script.id = "google-translate-script";
-      script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      script.src =
+        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
       script.async = true;
       document.body.appendChild(script);
     } else {
       window.googleTranslateElementInit();
     }
   }, []);
+
   return <div id="google_translate_element" className="text-xs" />;
 }
